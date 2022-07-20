@@ -1,0 +1,75 @@
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+:root{
+    --main-bg-color: grey;
+    --btn-bg-color: #172D39;
+    --btn-border-color: #49D3E8;
+    --borderWidth: 1.5px;
+}
+
+html{
+    background-color: var(--main-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.border-button{
+    top: 50px;
+    position: relative;
+    background-color:#172D39;
+    color: white;
+    box-shadow: 
+    inset 0 0 0 2px var(--btn-bg-color),
+    inset 0 0 0 2.5px #49D3E8;
+    border-width: 0;
+    border-radius: calc(2 * var(--borderWidth));
+    
+    
+}
+
+.border-button:before{
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #1098ad, #6fba82, white);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+}
+
+
+.border-button:hover::after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(45deg, #1098ad, #6fba82, #90e2a5, #1098ad, #6fba82,#1098ad, #6fba82,#1098ad, #6fba82, #90e2a5, #1098ad, #6fba82,#1098ad, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 1s ease-in-out infinite;
+    background-size: 300% 300%;
+    filter:brightness(1.5)
+  }    
+      
+
+
+@keyframes animatedgradient {
+0% {
+    background-position: 0% 30%;
+}
+50% {
+    background-position: 50% 50%;
+}
+100% {
+    background-position: 100% 50%;
+}
+}
+
